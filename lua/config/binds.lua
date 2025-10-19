@@ -1,0 +1,91 @@
+--------------------------------------------------------------------------
+-- Window Navigation
+--------------------------------------------------------------------------
+vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+
+--------------------------------------------------------------------------
+-- Buffer Management
+--------------------------------------------------------------------------
+vim.keymap.set({"n", "v", "i"}, "<M-Tab>", "<Cmd>BufferNext<CR>", { desc = "Next buffer" })
+vim.keymap.set({"n", "v", "i"}, "<M-S-Tab>", "<Cmd>BufferPrevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set({"n", "v", "i"}, "<M-w>", "<Cmd>BufferClose<CR>", { desc = "Close buffer" })
+vim.keymap.set({"n", "v", "i"}, "<C-S-t>", "<Cmd>BufferRestore<CR>", { desc = "Restore buffer" })
+vim.keymap.set({"n", "v", "i"}, "<M-t>", "<Cmd>new | q<CR>", { desc = "New buffer" })
+
+--------------------------------------------------------------------------
+-- General Editing
+--------------------------------------------------------------------------
+vim.keymap.set({"n", "i", "v"}, "<C-s>", function()
+    vim.cmd[[w]]
+end, { desc = "Save file" })
+
+--------------------------------------------------------------------------
+-- Plugins: Telescope, Neorg, CompetiTest, Copilot
+--------------------------------------------------------------------------
+-- Telescope
+vim.keymap.set("n", "<C-q>", function()
+  require("telescope").extensions.pomodori.timers()
+end, { desc = "Manage Pomodori Timers" })
+vim.keymap.set("n", "<M-v>", function()
+  vim.cmd[[Telescope neoclip]]
+end, { desc = "NeoClip" })
+
+-- Neorg
+vim.keymap.set("n", "<D-l>", function()
+  vim.cmd[[Neorg render-latex]]
+end, { desc = "Render LaTeX" })
+vim.keymap.set("n", "<C-S-,>", "<Plug>(neorg.promo.demote)", { desc = "Promote demote" })
+vim.keymap.set("n", "<C-S-.>", "<Plug>(neorg.promo.promote)", { desc = "Promote" })
+vim.keymap.set("n", "<M-c>", "<Plug>(neorg.looking-glass.magnify-code-block)", { desc = "Magnify code block" })
+
+-- CompetiTest
+-- Option key bind is meta
+vim.keymap.set("n", "<M-p>", function()
+  vim.cmd[[CompetiTest receive problem]]
+end, { desc = "Receive problem" })
+vim.keymap.set({"n", "v", "i"}, "<M-r>", function()
+  vim.cmd[[CompetiTest run]]
+end, { desc = "Run problem" })
+
+-- Copilot
+vim.keymap.set("i", "<Tab>", function()
+  if require("copilot.suggestion").is_visible() then
+--------------------------------------------------------------------------
+-- Plugins: NvimTree & LspUI
+--------------------------------------------------------------------------
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>f", "<cmd>NvimTreeFindFile<CR>")
+vim.keymap.set("n", "<leader>d", "<cmd>LspUI hover<CR>")
+vim.keymap.set("n", "gr", "<cmd>LspUI reference<CR>")
+vim.keymap.set("n", "gd", "<cmd>LspUI definition<CR>")
+vim.keymap.set("n", "gt", "<cmd>LspUI type_definition<CR>")
+vim.keymap.set("n", "gi", "<cmd>LspUI implementation<CR>")
+vim.keymap.set("n", "<leader>rn", "<cmd>LspUI rename<CR>")
+vim.keymap.set("n", "<leader>ca", "<cmd>LspUI code_action<CR>")
+vim.keymap.set("n", "<leader>ci", "<cmd>LspUI call_hierarchy incoming_calls<CR>")
+vim.keymap.set("n", "<leader>co", "<cmd>LspUI call_hierarchy outgoing_calls<CR>")
+
+    require("copilot.suggestion").accept()
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+  end
+end, { silent = true, noremap = true })
+
+--------------------------------------------------------------------------
+-- Compiler Commands
+--------------------------------------------------------------------------
+vim.keymap.set('n', '<F6>', '<cmd>CompilerOpen<cr>', { noremap = true, silent = true })
+-- Redo last selected option
+vim.keymap.set('n', '<F8>', '<cmd>CompilerStop<cr><cmd>CompilerRedo<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<F7>', '<cmd>CompilerToggleResults<cr>', { noremap = true, silent = true })
+
+--------------------------------------------------------------------------
+-- Garbage Day Commands
+--------------------------------------------------------------------------
+-- Link command GarbageLsp to lua of require("garbage-day.utils").start_lsp()
+vim.api.nvim_create_user_command('GarbageLsp', function()
+  require("garbage-day.utils").start_lsp()
+end, {})

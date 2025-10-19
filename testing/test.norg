@@ -1,0 +1,6 @@
+$|Hello, \LaTeX|$
+$|\LaTeX|$
+@code lua
+print("Hello, Lua!")
+@end
+********* Hello, Lua!

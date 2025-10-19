@@ -1,0 +1,16 @@
+require("config.nvimtree")
+require("config.ui.dressing")
+require("config.vimsetup")
+require("config.ui.theme")
+require("config.ui.notify")
+require("config.utilities.copilot")
+require("config.utilities.eagle")
+require("config.autocmds")
+vim.cmd[[colorscheme tokyonight]]
+require("config.utilities.timers.pomodoroconf")
+require("config.lsp")
+require("config.ui.lualineconf")
+require("mason").setup()
+require("telescope").load_extension "pomodori"
+require("config.utilities.image")
+require("config.menu")

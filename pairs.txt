@@ -1,0 +1,11 @@
+crun,CompetiTest run
+ct,CompetiTest
+wq,wq
+q,q
+w,w
+ctr,CompetiTest receive
+cpd,Copilot disable
+cpe,Copilot enable
+ctp,CompetiTest receive persistently
+qa,qa
+qa!,qa!
