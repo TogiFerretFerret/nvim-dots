@@ -1,4 +1,19 @@
 --------------------------------------------------------------------------
+-- Snippet Navigation (Native Vim Snippets)
+--------------------------------------------------------------------------
+vim.keymap.set({"i", "s"}, "<C-n>", function()
+  if vim.snippet.active({direction = 1}) then
+    return vim.snippet.jump(1)
+  end
+end, { desc = "Jump to next snippet placeholder" })
+
+vim.keymap.set({"i", "s"}, "<C-p>", function()
+  if vim.snippet.active({direction = -1}) then
+    return vim.snippet.jump(-1)
+  end
+end, { desc = "Jump to previous snippet placeholder" })
+
+--------------------------------------------------------------------------
 -- Window Navigation
 --------------------------------------------------------------------------
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
@@ -23,7 +38,7 @@ vim.keymap.set({"n", "i", "v"}, "<C-s>", function()
 end, { desc = "Save file" })
 
 --------------------------------------------------------------------------
--- Plugins: Telescope, Neorg, CompetiTest, Copilot
+-- Plugins: Telescope, CompetiTest, Copilot
 --------------------------------------------------------------------------
 -- Telescope
 vim.keymap.set("n", "<C-q>", function()
@@ -32,14 +47,6 @@ end, { desc = "Manage Pomodori Timers" })
 vim.keymap.set("n", "<M-v>", function()
   vim.cmd[[Telescope neoclip]]
 end, { desc = "NeoClip" })
-
--- Neorg
-vim.keymap.set("n", "<D-l>", function()
-  vim.cmd[[Neorg render-latex]]
-end, { desc = "Render LaTeX" })
-vim.keymap.set("n", "<C-S-,>", "<Plug>(neorg.promo.demote)", { desc = "Promote demote" })
-vim.keymap.set("n", "<C-S-.>", "<Plug>(neorg.promo.promote)", { desc = "Promote" })
-vim.keymap.set("n", "<M-c>", "<Plug>(neorg.looking-glass.magnify-code-block)", { desc = "Magnify code block" })
 
 -- CompetiTest
 -- Option key bind is meta
