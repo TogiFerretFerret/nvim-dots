@@ -6,6 +6,7 @@
 set number
 ca nto NvimTreeOpen
 set foldmethod=indent
+set foldlevelstart=99
 " sleep 100ms
 wincmd p
 "echo "Swapped to previous window"

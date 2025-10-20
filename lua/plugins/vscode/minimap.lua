@@ -18,7 +18,7 @@ return {
     --- Put your configuration here
     ---@type Neominimap.UserConfig
     vim.g.neominimap = {
-      auto_enable = false,  -- Disable auto-enable to reduce memory usage
+      auto_enable = true,
 	  layout='float'
     }
   end,
