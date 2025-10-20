@@ -13,17 +13,6 @@ local M = {
 		"kristijanhusak/vim-dadbod-completion",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		
-
-		-- snippets
-		"L3MON4D3/LuaSnip",
-		{
-			"rafamadriz/friendly-snippets",
-			config = function()
-				require("luasnip.loaders.from_vscode").lazy_load()
-			end,
-		},
-		"saadparwaiz1/cmp_luasnip",
-
 		-- command line
 		"hrsh7th/cmp-cmdline",
 		"dmitmel/cmp-cmdline-history",
@@ -35,7 +24,6 @@ local M = {
 
 M.config = function()
 	local cmp = require("cmp")
-	local luasnip = require("luasnip")
 	local lspkind = require("lspkind")
 	local has_words_before = function()
 		local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -61,20 +49,11 @@ M.config = function()
 				{ "i" }
 			),
 			['<M-CR>'] = cmp.mapping.confirm({ select = true }),
+			['<CR>'] = cmp.mapping.confirm({ select = false }),
 			-- Tab is used by Copilot, use <C-Space>
 			["<C-Space>"] = cmp.mapping(function(fallback)
-				if luasnip.expand_or_jumpable() then
-					luasnip.expand_or_jump()
-				elseif has_words_before() then
+				if has_words_before() then
 					cmp.complete()
-				else
-					fallback()
-				end
-			end, { "i", "s" }),
-
-			["<S-Tab>"] = cmp.mapping(function(fallback)
-				if luasnip.jumpable(-1) then
-					luasnip.jump(-1)
 				else
 					fallback()
 				end
@@ -85,10 +64,8 @@ M.config = function()
 			{ name = "nvim_lsp" },
 			{ name = "nvim_lsp_signature_help" },
 			{ name = "copilot" },
-			{ name = "luasnip" },
 			{ name = "path" },
 			{ name = "buffer" },
-			{ name = "neorg" },
 			{ name = "nvim_lua" },
 
 			{ name = "calc" },
@@ -101,7 +78,7 @@ M.config = function()
 
 		snippet = {
 			expand = function(args)
-				require("luasnip").lsp_expand(args.body)
+				vim.snippet.expand(args.body)
 			end,
 		},
 
