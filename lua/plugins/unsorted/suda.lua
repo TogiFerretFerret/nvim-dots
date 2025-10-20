@@ -1,1 +1,4 @@
-return {"lambdalisue/vim-suda"}
+return {
+  "lambdalisue/vim-suda",
+  cmd = { "SudaRead", "SudaWrite" },
+}

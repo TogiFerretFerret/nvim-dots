@@ -1,6 +1,8 @@
 return {
 	'xeluxee/competitest.nvim',
 	dependencies = 'MunifTanjim/nui.nvim',
+	cmd = { "CompetiTest" },
+	ft = { "cpp", "python" },
 	config = function() require('competitest').setup {
 		compile_command = {
 			cpp = { exec = "g++", args = {"-std=c++17","-O2","-DLOCAL_JUDGE","-lm","$(FNAME)","-o","$(FNOEXT)"}}
