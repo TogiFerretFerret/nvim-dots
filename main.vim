@@ -5,6 +5,7 @@
 " sleep 100ms
 set number
 ca nto NvimTreeOpen
+ca fixai %s/ //g
 set foldmethod=indent
 " sleep 100ms
 wincmd p

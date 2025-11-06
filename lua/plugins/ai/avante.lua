@@ -1,5 +1,6 @@
 return {
   "yetone/avante.nvim",
+  commit="7e9f7b57de46534a9113980ec950a2b05eb8861f",
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   -- ⚠️ must add this setting! ! !
   build = function()
@@ -19,7 +20,8 @@ return {
     -- for example
     provider = "copilot",
     providers = {
-
+		copilot = {
+		}
     },
   },
   dependencies = {
