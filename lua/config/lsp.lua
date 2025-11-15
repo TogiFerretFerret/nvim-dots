@@ -24,7 +24,8 @@ for _, server_name in ipairs(servers) do
   if server_name == "clangd" then
     opts.filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" }
   end
-  lspconfig[server_name].setup(opts)
+  vim.lsp.config(server_name, opts)
+  vim.lsp.enable(server_name)
 end
 
 require("nvim-treesitter.configs").setup({
@@ -32,4 +33,5 @@ require("nvim-treesitter.configs").setup({
     enable = true,
   },
 })
+--require("lsp_signature").setup({})
 

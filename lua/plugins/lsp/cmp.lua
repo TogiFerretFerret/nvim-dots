@@ -63,11 +63,9 @@ M.config = function()
 		sources = {
 			{ name = "nvim_lsp" },
 			{ name = "nvim_lsp_signature_help" },
-			{ name = "copilot" },
 			{ name = "path" },
 			{ name = "buffer" },
 			{ name = "nvim_lua" },
-
 			{ name = "calc" },
 			{ name = "emoji" },
 			{ name = "spell", keyword_length = 4 },
@@ -94,23 +92,16 @@ M.config = function()
 		},
 		formatting = {
 			fields = { "kind", "abbr", "menu" },
-			format = function(entry, vim_item)
-				local kind = lspkind.cmp_format({
-					mode = "symbol_text",
-					maxwidth = 50,
-				})(entry, vim_item)
-
-				local strings = vim.split(kind.kind, "%s", { trimempty = true })
-
-				if strings[1] ~= "Copilot" then
-					kind.kind = " " .. strings[1] .. " "
-				else
-					kind.kind = " " .. vim.fn.nr2char(0xe708) .. " "
-					kind.menu = "    (" .. "copilot" .. ")"
-				end
-
-				return kind
-			end,
+			format = lspkind.cmp_format({
+				mode = "symbol_text",
+				maxwidth = 50,
+				ellipsis_char = "...",
+				before = function(entry, vim_item)
+					-- Source
+					vim_item.menu = "[" .. entry.source.name .. "]"
+					return vim_item
+				end,
+			}),
 		},
 		view = {
 			entries = { name = "custom", selection_order = "near_cursor" },
@@ -121,21 +112,12 @@ M.config = function()
 		},
 	})
 
-	cmp.setup.cmdline(":", {
-		mapping = cmp.mapping.preset.cmdline({}),
+	cmp.setup.cmdline({ ":", "/" }, {
+		mapping = cmp.mapping.preset.cmdline(),
 		sources = {
 			{ name = "cmdline" },
-			{ name = "cmdline_history" },
-			{ name = "path" },
 		},
-	})
-
-	cmp.setup.cmdline("/", {
-		mapping = cmp.mapping.preset.cmdline({}),
-		sources = {
-			{ name = "buffer" },
-		},
-	})
+			})
 end
 
 return M
