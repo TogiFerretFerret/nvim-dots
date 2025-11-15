@@ -61,4 +61,3 @@ require('copilot').setup({
   },
   server_opts_overrides = {},
 })
-vim.cmd("Copilot disable")

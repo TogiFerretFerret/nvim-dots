@@ -21,7 +21,6 @@
   "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
   "eagle.nvim": { "branch": "main", "commit": "41cb488fc097aadc22e8b5e0b9292ac7e4ee9918" },
   "fzf-lua": { "branch": "main", "commit": "833781323058edd86be511dde676cd62d496e004" },
-  "garbage-day.nvim": { "branch": "main", "commit": "9c6abdedc0407ca517745a5c8e34214fc7dafaf4" },
   "hererocks": { "branch": "master", "commit": "bcab2cb579cc3d374a0fc4f602e29912d3674965" },
   "image.nvim": { "branch": "master", "commit": "4206c48a9f764a63f43022d6ab90ec04946bbc68" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
