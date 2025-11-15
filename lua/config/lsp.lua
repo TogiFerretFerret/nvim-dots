@@ -16,12 +16,13 @@ local servers = {
 }
 
 for _, server in ipairs(servers) do
-  lsp.config(server, {})
+  lsp.config(server, {autostart = true})
 end
 
 lsp.config("clangd", {
   filetypes = { "c", "cpp" },
   cmd = { "clangd" },
+  autostart = true
 })
 
 require("nvim-treesitter.configs").setup({
