@@ -1,4 +1,5 @@
-local lsp = require("vim.lsp")
+local lspconfig = require('lspconfig')
+local util = require('lspconfig.util')
 
 local servers = {
   "lua_ls",
@@ -12,18 +13,19 @@ local servers = {
   "ast_grep",
   "zls",
   "qmlls",
-  "arduino_language_server"
+  "arduino_language_server",
+  "clangd"
 }
 
-for _, server in ipairs(servers) do
-  lsp.config(server, {autostart = true})
+for _, server_name in ipairs(servers) do
+  local opts = {
+    autostart = true,
+  }
+  if server_name == "clangd" then
+    opts.filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" }
+  end
+  lspconfig[server_name].setup(opts)
 end
-
-lsp.config("clangd", {
-  filetypes = { "c", "cpp" },
-  cmd = { "clangd" },
-  autostart = true
-})
 
 require("nvim-treesitter.configs").setup({
   highlight = {
