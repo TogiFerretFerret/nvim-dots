@@ -6,7 +6,7 @@ return {
   build = function()
     -- conditionally use the correct build system for the current OS
     if vim.fn.has("win32") == 1 then
-      return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+      return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource true"
     else
       return "make BUILD_FROM_SOURCE=true"
     end

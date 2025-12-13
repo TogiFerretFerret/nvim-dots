@@ -23,6 +23,7 @@ for _, server_name in ipairs(servers) do
   }
   if server_name == "clangd" then
     opts.filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" }
+	opts.cmd = { "clangd", "--query-driver=C:\\msys64\\ucrt64\\bin\\g++.exe" }
   end
   vim.lsp.config(server_name, opts)
   vim.lsp.enable(server_name)
