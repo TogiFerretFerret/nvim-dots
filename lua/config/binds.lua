@@ -60,6 +60,13 @@ end, { desc = "Run problem" })
 -- Copilot
 vim.keymap.set("i", "<Tab>", function()
   if require("copilot.suggestion").is_visible() then
+    require("copilot.suggestion").accept()
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+  end
+end, { silent = true, noremap = true })
+
+
 --------------------------------------------------------------------------
 -- Plugins: NvimTree & LspUI
 --------------------------------------------------------------------------
@@ -74,13 +81,6 @@ vim.keymap.set("n", "<leader>rn", "<cmd>LspUI rename<CR>")
 vim.keymap.set("n", "<leader>ca", "<cmd>LspUI code_action<CR>")
 vim.keymap.set("n", "<leader>ci", "<cmd>LspUI call_hierarchy incoming_calls<CR>")
 vim.keymap.set("n", "<leader>co", "<cmd>LspUI call_hierarchy outgoing_calls<CR>")
-
-    require("copilot.suggestion").accept()
-  else
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
-  end
-end, { silent = true, noremap = true })
-
 --------------------------------------------------------------------------
 -- Compiler Commands
 --------------------------------------------------------------------------

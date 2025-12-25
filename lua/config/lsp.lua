@@ -28,10 +28,6 @@ for _, server_name in ipairs(servers) do
   vim.lsp.enable(server_name)
 end
 
-require("nvim-treesitter.configs").setup({
-  highlight = {
-    enable = true,
-  },
-})
+--require("nvim-treesitter.configs").setup({highlight = {enable = true,},})
 --require("lsp_signature").setup({})
 

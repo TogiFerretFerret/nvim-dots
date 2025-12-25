@@ -12,5 +12,4 @@ require("config.lsp")
 require("config.ui.lualineconf")
 require("mason").setup()
 require("telescope").load_extension "pomodori"
-require("config.utilities.image")
 require("config.menu")

@@ -13,3 +13,4 @@ vim.opt.maxmempattern = 2000     -- Limit pattern matching memory
 
 vim.cmd("source ~/.config/nvim/main.vim")
 vim.cmd("source ~/.config/nvim/rns.vim")
+require('telescope').load_extension 'remote-sshfs'
