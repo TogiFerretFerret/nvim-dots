@@ -7,7 +7,7 @@ return {
 		bigfile = {enabled=true},
 		dashboard = {enabled=true,
 		preset = {
-			header = [[	                                                                   
+			header = [[	                                                                    
        ████ ██████           █████      ██                     
       ███████████             █████                             
       █████████ ███████████████████ ███   ███████████   
