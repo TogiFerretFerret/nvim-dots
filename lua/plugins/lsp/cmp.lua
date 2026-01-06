@@ -70,12 +70,6 @@ M.config = function()
 			{ name = "render-markdown" },
 		},
 
-		snippet = {
-			expand = function(args)
-				vim.snippet.expand(args.body)
-			end,
-		},
-
 		window = {
 			completion = cmp.config.window.bordered({
 				col_offset = -3,
