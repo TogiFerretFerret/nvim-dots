@@ -57,16 +57,6 @@ vim.keymap.set({"n", "v", "i"}, "<M-r>", function()
   vim.cmd[[CompetiTest run]]
 end, { desc = "Run problem" })
 
--- Copilot
-vim.keymap.set("i", "<Tab>", function()
-  if require("copilot.suggestion").is_visible() then
-    require("copilot.suggestion").accept()
-  else
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
-  end
-end, { silent = true, noremap = true })
-
-
 --------------------------------------------------------------------------
 -- Plugins: NvimTree & LspUI
 --------------------------------------------------------------------------

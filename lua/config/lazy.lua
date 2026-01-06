@@ -38,7 +38,7 @@ require("lazy").setup({
     	{ import = "plugins.vscode" },
 	{ import = "plugins.lsp" },
 	{ import = "plugins.unsorted" },
-	{ import = "plugins.ai" },
+	{ import = "plugins.rocks" },
 	{ import = "plugins.teaching" },
 	{ import = "plugins.fun" },
 	{ import = "plugins.tools" },

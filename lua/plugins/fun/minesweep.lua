@@ -1,1 +1,0 @@
-return {"seandewar/nvimesweeper"}

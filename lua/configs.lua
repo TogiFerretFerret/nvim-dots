@@ -3,7 +3,6 @@ require("config.ui.dressing")
 require("config.vimsetup")
 require("config.ui.theme")
 require("config.ui.notify")
-require("config.utilities.copilot")
 require("config.utilities.eagle")
 require("config.autocmds")
 vim.cmd[[colorscheme tokyonight]]

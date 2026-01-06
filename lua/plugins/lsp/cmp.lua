@@ -4,12 +4,10 @@ local M = {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-calc",
-		-- "hrsh7th/cmp-copilot",
 		"hrsh7th/cmp-emoji",
 		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-path",
 		"f3fora/cmp-spell",
-		"lukas-reineke/cmp-rg",
 		"kristijanhusak/vim-dadbod-completion",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		
@@ -50,7 +48,6 @@ M.config = function()
 			),
 			['<M-CR>'] = cmp.mapping.confirm({ select = true }),
 			['<CR>'] = cmp.mapping.confirm({ select = false }),
-			-- Tab is used by Copilot, use <C-Space>
 			["<C-Space>"] = cmp.mapping(function(fallback)
 				if has_words_before() then
 					cmp.complete()
@@ -69,7 +66,6 @@ M.config = function()
 			{ name = "calc" },
 			{ name = "emoji" },
 			{ name = "spell", keyword_length = 4 },
-			{ name = "rg", dup = 0 },
 			{ name = "vim-dadbod-completion" },
 			{ name = "render-markdown" },
 		},
@@ -105,10 +101,6 @@ M.config = function()
 		},
 		view = {
 			entries = { name = "custom", selection_order = "near_cursor" },
-		},
-
-		experimental = {
-			ghost_text = true,
 		},
 	})
 
