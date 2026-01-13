@@ -90,9 +90,7 @@ vim.keymap.set('n', '<F8>', '<cmd>CompilerStop<cr><cmd>CompilerRedo<cr>', { nore
 vim.keymap.set('n', '<F7>', '<cmd>CompilerToggleResults<cr>', { noremap = true, silent = true })
 
 --------------------------------------------------------------------------
--- Garbage Day Commands
+-- Codeforces Helper
 --------------------------------------------------------------------------
--- Link command GarbageLsp to lua of require("garbage-day.utils").start_lsp()
-vim.api.nvim_create_user_command('GarbageLsp', function()
-  require("garbage-day.utils").start_lsp()
-end, {})
+-- option-s? something for CFStatus
+vim.keymap.set('n', '<leader>cs', '<cmd>CFStatus<cr>', { noremap = true, silent = true, desc = "Codeforces Status" })
