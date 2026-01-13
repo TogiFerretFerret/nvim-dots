@@ -15,7 +15,7 @@ return {
 		testcases_directory="./testcases",
 		testcases_input_file_format = "$(FNOEXT)_$(TCNUM).in",
 		testcases_output_file_format = "$(FNOEXT)_$(TCNUM).out",
-		template_file = "~/USACO/template/USACO.cpp",
+		template_file = "~/USACO/template/Codeforces.cpp",
 		evaluate_template_modifiers = true
 	} end,
 }
