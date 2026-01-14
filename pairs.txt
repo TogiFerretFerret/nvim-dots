@@ -13,4 +13,4 @@ uss,UsacoStartServer
 ust,UsacoStopServer
 urt,UsacoRestart
 cfs,CFSubmit
-cft,CFStatus
+css,CsesSubmit
