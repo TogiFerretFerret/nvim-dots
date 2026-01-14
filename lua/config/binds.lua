@@ -93,4 +93,5 @@ vim.keymap.set('n', '<F7>', '<cmd>CompilerToggleResults<cr>', { noremap = true, 
 -- Codeforces Helper
 --------------------------------------------------------------------------
 -- option-s? something for CFStatus
-vim.keymap.set('n', '<leader>cs', '<cmd>CFStatus<cr>', { noremap = true, silent = true, desc = "Codeforces Status" })
+vim.keymap.set('n', '<leader>cfs', '<cmd>CFStatus<cr>', { noremap = true, silent = true, desc = "Codeforces Status" })
+vim.keymap.set('n', '<leader>css', '<cmd>CsesStatus<cr>', { noremap = true, silent = true, desc = "CSES Status" })

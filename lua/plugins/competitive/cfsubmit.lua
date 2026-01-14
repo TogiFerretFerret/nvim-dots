@@ -1,3 +1,3 @@
 return {
-	dir="~/USACO/cfsubmit.nvim"
+	dir="~/USACO/cptools/cfsubmit.nvim"
 }
