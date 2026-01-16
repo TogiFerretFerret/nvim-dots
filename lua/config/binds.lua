@@ -21,6 +21,15 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
+-- Resizing
+-- Remap Ctrl + arrow keys to resize splits
+-- Normal and Visual modes
+vim.api.nvim_set_keymap('n', '<C-Down>', ':resize +1<CR>', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Up>', ':resize -1<CR>', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize -1<CR>', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize +1<CR>', { silent = true, noremap = true })
+
+
 --------------------------------------------------------------------------
 -- Buffer Management
 --------------------------------------------------------------------------
