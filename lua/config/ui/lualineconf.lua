@@ -21,7 +21,7 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename', require('lrcsnc').component },
+    lualine_c = {require('lrcsnc').component },
     lualine_x = {'encoding', require("music-controls")._statusline, 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -42,7 +42,6 @@ require('lualine').setup {
 require("lualine").setup {
   sections = {
 	lualine_c = {
-	'filename',
       function()
         local ok, pomo = pcall(require, "pomo")
         if not ok then
