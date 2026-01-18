@@ -26,7 +26,6 @@ endfunction
 " Set statusline to empty string
 "echo "Setting statusline to empty string"
 " sleep 100ms
-au BufEnter NvimTree setlocal statusline=%!DisableST()
 " sleep 100ms
 "echo "Setting up NvimTree"
 " sleep 100ms
