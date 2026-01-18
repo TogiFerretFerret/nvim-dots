@@ -4,7 +4,7 @@
 "echo "Setting up basic settings"
 " sleep 100ms
 set number
-ca nto NvimTreeOpen
+ca nto NvimTreeToggle
 ca fixai %s/ //g
 set foldmethod=indent
 " sleep 100ms

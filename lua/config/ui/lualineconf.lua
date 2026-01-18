@@ -7,6 +7,7 @@ require('lualine').setup {
     disabled_filetypes = {
       'NvimTree',
 	  'CompetiTest',
+	  'DressingInput',
       statusline = {},
       winbar = {},
     },
