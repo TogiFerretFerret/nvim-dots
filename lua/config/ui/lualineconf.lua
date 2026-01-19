@@ -8,6 +8,8 @@ require('lualine').setup {
       'NvimTree',
 	  'CompetiTest',
 	  'DressingInput',
+	  'AvantePromptInput',
+	  'TelescopePrompt',
       statusline = {},
       winbar = {},
     },
