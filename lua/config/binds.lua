@@ -1,3 +1,4 @@
+-- TODO: Refactor keybinds to be more organized (date: never [will do never, probably])
 --------------------------------------------------------------------------
 -- Snippet Navigation (Native Vim Snippets)
 --------------------------------------------------------------------------

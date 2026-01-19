@@ -6,7 +6,7 @@ require("config.ui.notify")
 require("config.utilities.copilot")
 require("config.utilities.eagle")
 require("config.autocmds")
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme tokyonight]] -- Ignore warning, vim is a defined global in nvim
 require("config.utilities.timers.pomodoroconf")
 require("config.lsp")
 require("config.ui.lualineconf")
