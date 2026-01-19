@@ -1,4 +1,3 @@
--- Removed auto-open of nvim-tree to reduce memory usage on startup
 -- Use <leader>e or <leader>f to open nvim-tree manually
 vim.opt.foldlevelstart = 99
 vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost"}, {

@@ -19,7 +19,10 @@ return {
     ---@type Neominimap.UserConfig
     vim.g.neominimap = {
       auto_enable = false,  -- Disable auto-enable to reduce memory usage
-	  layout='float'
+	  layout='float',
+	  float = {
+		window_border='none'
+	  }
     }
   end,
 }
