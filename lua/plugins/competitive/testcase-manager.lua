@@ -5,7 +5,7 @@ return {
 	ft = { "cpp", "python" },
 	config = function() require('competitest').setup {
 		compile_command = {
-			cpp = { exec = "g++", args = {"-std=c++17","-O2","-DLOCAL_JUDGE","-lm","$(FNAME)","-o","compiled/$(FNOEXT)"}}
+			cpp = { exec = "g++", args = {"-std=c++20","-O2","-DLOCAL_JUDGE","-lm","$(FNAME)","-o","compiled/$(FNOEXT)"}}
 		},
 		run_command = {
 			cpp = { exec = "./compiled/$(FNOEXT)" },
