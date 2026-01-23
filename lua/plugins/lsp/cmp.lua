@@ -9,7 +9,6 @@ local M = {
 		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-path",
 		"f3fora/cmp-spell",
-		"lukas-reineke/cmp-rg",
 		"kristijanhusak/vim-dadbod-completion",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		
@@ -69,7 +68,6 @@ M.config = function()
 			{ name = "calc" },
 			{ name = "emoji" },
 			{ name = "spell", keyword_length = 4 },
-			{ name = "rg", dup = 0 },
 			{ name = "vim-dadbod-completion" },
 			{ name = "render-markdown" },
 		},

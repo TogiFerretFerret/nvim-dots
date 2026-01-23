@@ -6,75 +6,97 @@ return {
       { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode (Writer Focus)" },
     },
     dependencies = { "folke/twilight.nvim" },
+    
+    init = function()
+      -- 1. Register *.fic as filetype 'prose'
+      vim.filetype.add({
+        extension = {
+          fic = "prose",
+        },
+      })
+
+      -- 2. Watch for the 'prose' filetype specifically
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "prose",
+        callback = function()
+          -- Set syntax to markdown for colors (Bold/Italic), but keep filetype 'prose'
+          vim.cmd("set syntax=markdown")
+          
+          -- DISABLE DIAGNOSTICS (The Red Line Fix)
+          -- This stops NvimTree from marking the file as having errors
+          vim.diagnostic.enable(false, { bufnr = 0 })
+          
+          vim.schedule(function()
+            local opt = vim.opt_local
+
+            -- KILL LINE NUMBERS
+            opt.number = false
+            opt.relativenumber = false
+
+            -- VISUAL WRAPPING
+            opt.wrap = true
+            opt.linebreak = true        
+            opt.breakindent = true      
+            opt.breakindentopt = "shift:2" 
+
+            -- SPELL CHECKING (Native Vim, not LSP)
+            opt.spell = true
+            opt.spelllang = "en_us"
+
+            -- NAVIGATION FIX
+            local map_opts = { buffer = true, silent = true }
+            vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, buffer = true })
+            vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, buffer = true })
+            vim.keymap.set({ "n", "x" }, "0", "g0", map_opts)
+            vim.keymap.set({ "n", "x" }, "$", "g$", map_opts)
+          end)
+        end,
+      })
+    end,
+
     opts = {
       window = {
-        backdrop = 0.95, -- Nearly opaque background for isolation
-        width = 80,      -- The "Golden Ratio" for readability
-        height = 1,      -- Full height
+        backdrop = 0.95,
+        width = 80,     
         options = {
-          signcolumn = "no",      -- Hide the git signs/diagnostics
-          number = false,         -- No line numbers
-          relativenumber = false, -- No relative numbers
-          cursorline = false,     -- No highlighting the current line
-          cursorcolumn = false,   -- No crosshair
-          foldcolumn = "0",       -- No folds
-          list = false,           -- Hide whitespace characters
+          signcolumn = "no",      
+          number = false,         
+          relativenumber = false, 
+          cursorline = false,     
+          foldcolumn = "0",       
         },
       },
       plugins = {
         options = {
           enabled = true,
-          ruler = false,   -- Hide the ruler (line/col info) in status
-          showcmd = false, -- Hide the partial command characters
+          ruler = false,   
+          showcmd = false, 
         },
-        twilight = { enabled = true }, -- Dims inactive paragraphs (Game Changer)
+        twilight = { enabled = true }, 
         gitsigns = { enabled = false },
-        tmux = { enabled = true },     -- Hides the tmux status bar
-        kitty = {
-          enabled = true,
-          font = "+4", -- Increases font size if you use Kitty (optional)
-        },
+        tmux = { enabled = true },     
       },
-      
-      -- THE MONEY MAKER: Auto-configure Prose Settings on Open
       on_open = function(win)
         local wo = vim.wo[win]
-        
-        -- Enable Soft Wrapping (Visual wrap only, no newlines)
         wo.wrap = true
         wo.linebreak = true
         wo.breakindent = true
-        
-        -- Enable Spellcheck
         wo.spell = true
-        
-        -- Remap movement to visual lines (so 'j' goes down one visual line, not one code line)
-        -- We map these buffer-locally so they apply to the text file
-        local map_opts = { buffer = true, silent = true }
-        vim.keymap.set("n", "j", "gj", map_opts)
-        vim.keymap.set("n", "k", "gk", map_opts)
-        vim.keymap.set("n", "0", "g0", map_opts)
-        vim.keymap.set("n", "$", "g$", map_opts)
-      end,
-      
-      -- (Optional) Turn off spellcheck when leaving if you want
-      on_close = function()
-        vim.wo.spell = false
+        wo.number = false 
+        wo.relativenumber = false
       end,
     },
   },
   
-  -- Dependency Config: Highlights only the paragraph you are working on
   {
     "folke/twilight.nvim",
     opts = {
-      dimming = {
-        alpha = 0.25, -- Amount of dimming
-      },
-      context = 10, -- Amount of lines to keep visible around cursor
-      expand = { -- Things to never dim
+      dimming = { alpha = 0.25 },
+      context = 10, 
+      expand = {
         "markdown",
         "text",
+        "prose", 
       },
     },
   }
