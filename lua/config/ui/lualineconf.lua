@@ -10,6 +10,7 @@ require('lualine').setup {
 	  'DressingInput',
 	  'AvantePromptInput',
 	  'TelescopePrompt',
+	  'notify',
 	  '', -- blank for competitest pnami
       statusline = {},
       winbar = {},
