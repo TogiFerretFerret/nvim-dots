@@ -1,0 +1,6 @@
+[[38;2;88;101;242marRPC[0m] arRPC v3.6.0
+[[38;2;88;101;242marRPC[0m > [38;2;87;242;135mbridge[0m] listening on 1337
+[[38;2;88;101;242marRPC[0m > [38;2;254;231;92mipc[0m] listening at /run/user/1000/discord-ipc-0
+[[38;2;88;101;242marRPC[0m > [38;2;235;69;158mwebsocket[0m] listening on 6463
+[[38;2;88;101;242marRPC[0m > [38;2;237;66;69mprocess[0m] started
+[[38;2;88;101;242marRPC[0m > [38;2;87;242;135mbridge[0m] web connected
