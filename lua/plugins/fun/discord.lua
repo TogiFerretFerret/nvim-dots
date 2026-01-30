@@ -1,4 +1,4 @@
 return {
-  "andweeb/presence.nvim",
+  "TogiFerretFerret/presencectl.nvim",
   event = "VeryLazy",
 }
