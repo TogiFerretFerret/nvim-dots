@@ -8,6 +8,7 @@ local servers = {
   "cssls",
   "yamlls",
   "eslint",
+  "eslint_d",
   "pyright",
   "rust_analyzer",
   "ast_grep",
