@@ -15,7 +15,8 @@ local servers = {
   "zls",
   "qmlls",
   "arduino_language_server",
-  "clangd"
+  "clangd",
+  "gopls"
 }
 
 for _, server_name in ipairs(servers) do
