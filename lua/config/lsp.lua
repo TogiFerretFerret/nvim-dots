@@ -2,6 +2,7 @@ local lspconfig = require('lspconfig')
 local util = require('lspconfig.util')
 
 local servers = {
+	"ts_ls",
   "lua_ls",
   "jsonls",
   "html",
@@ -26,8 +27,10 @@ for _, server_name in ipairs(servers) do
   if server_name == "clangd" then
     opts.filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" }
   end
-  vim.lsp.config(server_name, opts)
-  vim.lsp.enable(server_name)
+  if vim.lsp.config[server_name] then
+    vim.lsp.config(server_name, opts)
+    vim.lsp.enable(server_name)
+  end
 end
 
 --require("nvim-treesitter.configs").setup({highlight = {enable = true,},})
