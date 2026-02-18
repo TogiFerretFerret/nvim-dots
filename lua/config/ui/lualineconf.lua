@@ -11,6 +11,7 @@ require('lualine').setup {
 	  'AvantePromptInput',
 	  'TelescopePrompt',
 	  'notify',
+	  'NvMenu',
 	  '', -- blank for competitest pnami
       statusline = {},
       winbar = {},
