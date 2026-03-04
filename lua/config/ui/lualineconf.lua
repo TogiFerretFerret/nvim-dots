@@ -12,6 +12,7 @@ require('lualine').setup {
 	  'TelescopePrompt',
 	  'notify',
 	  'NvMenu',
+	  'tetris',
 	  '', -- blank for competitest pnami
       statusline = {},
       winbar = {},
