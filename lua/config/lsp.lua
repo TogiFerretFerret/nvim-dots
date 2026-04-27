@@ -2,7 +2,7 @@ local lspconfig = require('lspconfig')
 local util = require('lspconfig.util')
 
 local servers = {
-	"ts_ls",
+  "ts_ls",
   "lua_ls",
   "jsonls",
   "html",
@@ -17,7 +17,8 @@ local servers = {
   "qmlls",
   "arduino_language_server",
   "clangd",
-  "gopls"
+  "gopls",
+  "astro"
 }
 
 for _, server_name in ipairs(servers) do
