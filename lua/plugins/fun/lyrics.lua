@@ -1,11 +1,11 @@
 return {
-dir= "~/USACO/cptools/lualine-lrcsnc.nvim", -- Or wherever you store local plugins
+  dir = "~/USACO/cptools/lualine-lrcsnc.nvim",
   dependencies = { "nvim-lualine/lualine.nvim" },
   config = function()
     require("lrcsnc").setup({
-      cmd = { "lrcsnc" }, -- Default
+      socket_path = "/tmp/lazyspotify-lyrics.sock",
       max_length = 60,
-      icon = "♪"
+      icon = "♪",
     })
-  end
+  end,
 }
