@@ -18,7 +18,8 @@ local servers = {
   "arduino_language_server",
   "clangd",
   "gopls",
-  "astro"
+  "astro",
+  "jdtls"
 }
 
 for _, server_name in ipairs(servers) do
