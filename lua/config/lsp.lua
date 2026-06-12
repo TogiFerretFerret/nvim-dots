@@ -22,10 +22,14 @@ local servers = {
 
 local function ts_before_init(params, config)
   local root = config.root_dir or vim.fn.getcwd()
+  -- Try root/node_modules first, then root/frontend/node_modules for monorepos
+  -- where the TS project lives in a subdirectory.
+  local tsdk = root .. "/node_modules/typescript/lib"
+  if vim.fn.filereadable(tsdk .. "/typescript.js") == 0 then
+    tsdk = root .. "/frontend/node_modules/typescript/lib"
+  end
   config.init_options = config.init_options or {}
-  config.init_options.typescript = {
-    tsdk = root .. "/node_modules/typescript/lib",
-  }
+  config.init_options.typescript = { tsdk = tsdk }
 end
 
 for _, server_name in ipairs(servers) do
