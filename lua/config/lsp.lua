@@ -29,6 +29,14 @@ for _, server_name in ipairs(servers) do
   if server_name == "clangd" then
     opts.filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" }
   end
+  if server_name == "ts_ls" or server_name == "astro" then
+    opts.on_new_config = function(new_config, new_root_dir)
+      new_config.init_options = new_config.init_options or {}
+      new_config.init_options.typescript = {
+        tsdk = new_root_dir .. "/node_modules/typescript/lib",
+      }
+    end
+  end
   if vim.lsp.config[server_name] then
     vim.lsp.config(server_name, opts)
     vim.lsp.enable(server_name)
