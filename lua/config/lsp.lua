@@ -36,6 +36,14 @@ for _, server_name in ipairs(servers) do
   local opts = { autostart = true }
   if server_name == "clangd" then
     opts.filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" }
+  elseif server_name == "rust_analyzer" then
+    opts.settings = {
+      ["rust-analyzer"] = {
+        diagnostics = {
+          disabled = { "unlinked-file" }
+        }
+      }
+    }
   end
   if vim.lsp.config[server_name] then
     vim.lsp.config(server_name, opts)
