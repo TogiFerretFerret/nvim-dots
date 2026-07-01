@@ -21,6 +21,7 @@
   "eagle.nvim": { "branch": "main", "commit": "d503b168932160b07d4d09551d90d5fbb388b641" },
   "epub.nvim": { "branch": "main", "commit": "c112d80dfea3ca687b7b8e7415b0e8dfade6baa1" },
   "fzf-lua": { "branch": "main", "commit": "39da6060d53659acf3ec118200bc48721b29b8fd" },
+  "hydrate.nvim": { "branch": "main", "commit": "9e0ca4e553b726eb12ba58a5f8c0738cba7d080c" },
   "indent-blankline.nvim": { "branch": "master", "commit": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03" },
   "instant.nvim": { "branch": "master", "commit": "294b6d08143b3db8f9db7f606829270149e1a786" },
   "jupytext.nvim": { "branch": "main", "commit": "c8baf3ad344c59b3abd461ecc17fc16ec44d0f7b" },
